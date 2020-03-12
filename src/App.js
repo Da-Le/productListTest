@@ -22,21 +22,15 @@ class ProductList extends Component {
   //mount data from local json on first render then store on state
   componentDidMount(){
     this.setState({data})
-
-      // if(this.state.query !== '') {
-      //   this.state.data.filter( items => items === this.state.query 
-      //     return this.setState({data})
-      //   )
-      // }else {
-      //   return this.state.data
-      // }
   }
 
+  //handle submnit query
   onSubmit =(e) =>{
     e.preventDefault()
     this.setState({query:this.state.search.toUpperCase()})
   }
 
+  //render product list with query
   listOfProducts = () => {
     const renderProducts = this.state.data.filter(item => item.productName.includes(this.state.query))
     .map(items => {
